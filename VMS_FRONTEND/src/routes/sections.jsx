@@ -76,7 +76,8 @@ import StockTaking from 'src/sections/StockManagement/StockTaking';
 import StockReturn from 'src/sections/StockManagement/StockReturn';
 
 
-import PurchasingAdd from 'src/sections/Purchasing/PurchasingAdd'
+import Home from 'src/sections/Home/home';
+import PurchasingAdd from 'src/sections/Purchasing/PurchasingAdd';
 
 import SupplierPayment from 'src/sections/SupplierPaymentManagement/SupplierPayment';
 
@@ -126,6 +127,11 @@ export default function Router() {
   const routes = useRoutes([
     {
       path: '/',
+      element: <Home />,
+      
+    },
+    {
+      path: '/login',
       element: <Login />,
     },
     {
