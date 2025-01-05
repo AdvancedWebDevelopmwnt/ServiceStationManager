@@ -149,7 +149,7 @@ export default function Router() {
 
         {
           path: 'user/list',
-          element: hasAccess('super-permission|user-list') ? (
+          element: hasAccess('super-permission|user-list',) ? (
             <UserList />
           ) : (
             <Navigate to="/403" replace />

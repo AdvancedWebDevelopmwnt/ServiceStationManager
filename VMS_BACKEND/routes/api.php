@@ -53,6 +53,9 @@ Route::middleware('auth:sanctum')->get('/checkuser', function (Request $request)
 
 Route::post('/login',[AuthController::class,'loginUser']);
 
+Route::post('/customer-register',[CustomerController::class,'CustomerRegister']);
+
+
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/logout',[AuthController::class,'logout']);

@@ -16,7 +16,7 @@ const navConfig = [
   },
 
   {
-    permissions: 'super-permission|user-list|user-create|user-edit|user-delete|password-reset',
+    permissions: 'super-permission|user-list|user-create|user-edit|user-delete|password-reset|customer-permission',
     title: 'User Management',
     path: '/user/list',
     icon: <Iconify icon="carbon:id-management" sx={{ width: 1, height: 1 }} />,

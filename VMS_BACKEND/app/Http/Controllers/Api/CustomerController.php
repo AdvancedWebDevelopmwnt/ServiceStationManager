@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class CustomerController extends Controller
@@ -82,6 +84,77 @@ class CustomerController extends Controller
             return response()->json([
                'status' => true,
                'message' => 'Customer Created Successfully',
+                'customer' => $customer
+            ], 200);
+           
+         
+
+        } catch (\Throwable $th) {
+            return response()->json([
+               'status' => false,
+               'message' => $th->getMessage()
+            ], 500);
+       }
+    }
+
+    public function CustomerRegister(Request $request)
+    {
+        try {
+            //Validated
+            $validateCustomer = Validator::make($request->all(), [
+                'first_name' =>'required',
+                'last_name'=>'required',
+                'email'=>'required',
+                'username'=>'required',
+                'password'=>'required'
+             
+            ]);
+
+            if($validateCustomer->fails()){
+                return response()->json([
+                   'status' => false,
+                   'message' => 'validation error',
+                    'errors' =>  $validateCustomer->errors()
+                ], 401);
+            }
+
+         
+
+
+            $customerEmailExist = User::where('email',$request->email)->first();
+            if($customerEmailExist){
+                return response()->json([
+                    'status' => true,
+                    'message' => 'Customer Email Already Exisist',
+                   
+                 ], 200);  
+            }
+
+            $customerUsernameExist = User::where('username',$request->username)->first();
+            if($customerUsernameExist){
+                return response()->json([
+                    'status' => true,
+                    'message' => 'Customer Username Already Exisist',
+                   
+                 ], 200);  
+            }
+
+
+            $customer = User::create([
+                'first_name' =>$request->first_name,
+                'last_name'=>$request->last_name,
+                'contact'=>$request->mobile_number,
+                'email'=>$request->email,
+                'username'=>$request->username,
+                'name'=> $request->first_name. " " . $request->last_name,
+                'role' => 2,
+                'password' => Hash::make($request->password)
+
+            ]);
+
+            return response()->json([
+               'status' => true,
+               'message' => 'User Account created Successfully',
                 'customer' => $customer
             ], 200);
            
