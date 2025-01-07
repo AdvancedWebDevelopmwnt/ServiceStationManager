@@ -80,6 +80,7 @@ import Home from 'src/sections/Home/home';
 import PurchasingAdd from 'src/sections/Purchasing/PurchasingAdd';
 
 import SupplierPayment from 'src/sections/SupplierPaymentManagement/SupplierPayment';
+import CustomerRegister from 'src/sections/CustomerRegistration/CustomerRegister';
 
 export const IndexPage = lazy(() => import('src/pages/app'));
 
@@ -133,6 +134,11 @@ export default function Router() {
     {
       path: '/login',
       element: <Login />,
+    },
+
+    {
+      path: '/CustomerRegistration',
+      element: <CustomerRegister />,
     },
     {
       element: (

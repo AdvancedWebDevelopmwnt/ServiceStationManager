@@ -8,6 +8,9 @@ const App = () => {
   const handleLoginClick = () => {
     navigate('/login');
   };
+  const handleRegClick = () =>{
+    navigate('/CustomerRegistration');
+  };
 
   return (
     <div className="app">
@@ -25,7 +28,7 @@ const App = () => {
         <button className="login-button" onClick={handleLoginClick}>
           Login
         </button>
-        <button className="registration-button" onClick={handleLoginClick}>
+        <button className="registration-button" onClick={handleRegClick}>
           Register
         </button>
       </nav>
