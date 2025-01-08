@@ -154,73 +154,77 @@ export default function Login() {
 
   return (
       
-        <Stack alignItems="center" justifyContent="center" sx={{ height: 1 }}>
-        <Card
-              sx={{
-                p: 5,
-                width: 1,
-                maxWidth: 420,
-                textAlign: 'center' // Center align the card content
-              }}
-            >
-              <Typography variant="h4" style={{ marginBottom: '14px' }}>Sign in to VMS</Typography>
-
-              <Stack spacing={3} sx={{ width: '100%' }}> {/* Added width to Stack */}
-                <TextField
-                  name="email" 
-                  label="Username" 
-                  value={formValues.email.value}
-                  onChange={handleChange}
-                  error={formValues.email.error}
-                  helperText={formValues.email.error && formValues.email.errorMessage}
-                  fullWidth  // Make the text field full width
-                />
-
-                <TextField
-                  name="password"
-                  label="Password"
-                  value={formValues.password.value}
-                  onChange={handleChange}
-                  error={formValues.password.error}
-                  helperText={formValues.password.error && formValues.password.errorMessage}
-                  type={showPassword ? 'text' : 'password'}
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                          <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
-                        </IconButton>
-                      </InputAdornment>
-                    ),
-                  }}
-                  fullWidth
-                />
-              </Stack>
-
-              {/* Add spacing below the form */}
-              <Stack spacing={2} sx={{ marginTop: '1rem' }}>
-                <LoadingButton
-                  fullWidth
-                  size="large"
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  onClick={handleClick}
-                  loading={loading}
-                >
-                  Login
-                </LoadingButton>
-                {responseErr && <ToastContainer/>}
-              </Stack>
-
-              {/* Optional: Add a "Forgot Password?" link */}
-              {/* <Stack direction="row" alignItems="center" justifyContent="flex-end" sx={{ my: 3 }}>
-                <Link variant="subtitle2" underline="hover">
-                  Forgot password?
-                </Link>
-              </Stack> */}
-            </Card>
-        </Stack>
-   
-  )
+    <div
+    style={{
+      height: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: 'linear-gradient(to right, #4e54c8, #8f94fb)',
+      padding: '20px',
+    }}
+  >
+    <Card
+      sx={{
+        p: 5,
+        width: 1,
+        maxWidth: 420,
+        textAlign: 'center', // Center align the card content
+        boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.2)',
+      }}
+    >
+      <Typography variant="h4" sx={{ marginBottom: 2 }}>
+        Sign in to VMS
+      </Typography>
+  
+      <Stack spacing={3} sx={{ width: '100%' }}> {/* Added width to Stack */}
+        <TextField
+          name="email"
+          label="Email"
+          value={formValues.email.value}
+          onChange={handleChange}
+          error={formValues.email.error}
+          helperText={formValues.email.error && formValues.email.errorMessage}
+          fullWidth // Make the text field full width
+        />
+  
+        <TextField
+          name="password"
+          label="Password"
+          value={formValues.password.value}
+          onChange={handleChange}
+          error={formValues.password.error}
+          helperText={formValues.password.error && formValues.password.errorMessage}
+          type={showPassword ? 'text' : 'password'}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+                  <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+          fullWidth
+        />
+      </Stack>
+  
+      <Stack spacing={2} sx={{ marginTop: '1rem' }}>
+        <LoadingButton
+          fullWidth
+          size="large"
+          type="submit"
+          variant="contained"
+          color="primary"
+          onClick={handleClick}
+          loading={loading}
+        >
+          Login
+        </LoadingButton>
+        {responseErr && <ToastContainer />}
+      </Stack>
+    </Card>
+  </div>
+  
+  );
 }
