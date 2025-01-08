@@ -147,6 +147,9 @@ class Permissions extends Seeder
         array_push($systemPermissions, [$group_name, $hasPermission]);
 
 
+      
+
+
         // $group_name = 'Department Management';
 
         // $hasPermission = '';

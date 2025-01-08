@@ -118,8 +118,8 @@ html,
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start; /* Align items to the left */
+    text-align: left; /* Align text to the left */
     padding: 2rem;
     backdrop-filter: blur(8px);
 }
@@ -128,6 +128,7 @@ html,
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 2rem;
+    color: darkblue; /* Set text color to dark blue */
 }
 
 /* Hero Actions */
@@ -135,6 +136,7 @@ html,
     display: flex;
     gap: 1rem;
 }
+
 
 .select-vehicle,
 .phone-input {

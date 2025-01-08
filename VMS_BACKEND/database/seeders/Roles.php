@@ -49,6 +49,17 @@ class Roles extends Seeder
             'updated_at'    => DB::raw('CURRENT_TIMESTAMP')
         ]);
 
+
+        DB::table('roles')->updateOrInsert([
+            'id'         => 2,
+        ],[
+            'user_type'     => 'BACKEND',
+            'name'     => 'customer',
+            'permissions'   => "customer-permission",
+            'created_at'    => DB::raw('CURRENT_TIMESTAMP'),
+            'updated_at'    => DB::raw('CURRENT_TIMESTAMP')
+        ]);
+
       
     }
 }
