@@ -58,7 +58,7 @@ class AuthController extends Controller
             ], 200);
 
              $user = User::select('users.*', 'roles.name as userRole','roles.deleted_at')
-        ->where('username', $request->username)
+        ->where('email', $request->email)
         ->where('users.disabled', false)
         ->join('roles', 'roles.id', '=', 'users.role')
         ->whereNull('users.deleted_at')

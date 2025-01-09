@@ -23,6 +23,8 @@ use App\Http\Controllers\Api\VehicleServiceController;
 use App\Http\Controllers\Api\VehicleSupervise\VehicleSuperviseController;
 use App\Http\Controllers\Api\VehicleRegistration\VehicleRegistrationController;///////////
 
+use App\Http\Controllers\Api\AppointmentController;
+
 use App\Http\Controllers\Api\StockManagement\StockManagementController;
 use App\Http\Controllers\Api\StockManagement\PurchasingController;
 use App\Http\Controllers\Api\StockManagement\InternalStockTakingController;
@@ -33,6 +35,8 @@ use App\Http\Controllers\Api\SalesManagement\SalesManagementController;
 use App\Http\Controllers\Api\BodyWashOnlyRegistration\BodyWashOnlyRegistrationController;
 
 use App\Http\Controllers\Api\VehicleLogManagement\VehicleLogManagementController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +60,7 @@ Route::post('/login',[AuthController::class,'loginUser']);
 Route::post('/customer-register',[CustomerController::class,'CustomerRegister']);
 
 
+
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/logout',[AuthController::class,'logout']);
@@ -67,6 +72,16 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::delete('/{id}',[RoleController::class,'destroy']);
         Route::get('/show/{id}',[RoleController::class,'show']);
     });
+
+    Route::prefix('appointments')->group(function () {
+        Route::get('/', [AppointmentController::class, 'list']);
+        Route::post('/', [AppointmentController::class, 'store']);
+        Route::get('/{id}', [AppointmentController::class, 'show']);
+        Route::put('/{id}', [AppointmentController::class, 'update']);
+        Route::delete('/{id}', [AppointmentController::class, 'destroy']);
+    });
+
+
 
     Route::group(['prefix'=>'branch'], function(){
         Route::get('/',[BranchController::class,'list']);
@@ -123,6 +138,13 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/{id}',[ProductController::class,'update']);
         Route::delete('/{id}',[ProductController::class,'destroy']);
         Route::get('/show/{id}',[ProductController::class,'show']);
+    });
+    Route::group(['prefix'=>'appointment'],function () {
+        Route::get('/', [AppointmentController::class, 'index']);
+        Route::post('/', [AppointmentController::class, 'store']);
+        Route::get('{id}', [AppointmentController::class, 'show']);
+        Route::put('{id}', [AppointmentController::class, 'update']);
+        Route::delete('{id}', [AppointmentController::class, 'destroy']);
     });
 
     Route::group(['prefix'=>'customer'], function(){
@@ -198,6 +220,11 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/show/{id}',[VehicleLogManagementController::class,'viewRecord']);
         // Route::post('/{id}',[VehicleSuperviseController::class,'update']);
     });
+
+    
+
+
+    
 
 
 
