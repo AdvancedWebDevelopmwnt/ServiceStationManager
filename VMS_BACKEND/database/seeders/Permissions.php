@@ -146,6 +146,17 @@ class Permissions extends Seeder
 
         array_push($systemPermissions, [$group_name, $hasPermission]);
 
+        $group_name = 'Appointment Management';
+
+        $hasPermission = '';
+        $hasPermission .= '|appointment-list';
+        $hasPermission .= '|appointment-create';
+        $hasPermission .= '|appointment-edit';
+        $hasPermission .= '|appointment-view';
+
+array_push($systemPermissions, [$group_name, $hasPermission]);
+
+
 
       
 

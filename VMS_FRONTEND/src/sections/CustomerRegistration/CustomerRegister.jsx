@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Card, CardContent, TextField, Typography, Stack, Snackbar, Alert } from "@mui/material";
+import { Button, Card, CardContent, TextField, Typography, Stack, Snackbar, Alert, Grid } from "@mui/material";
 import { axiosInstance } from 'src/axiosinstance/axiosinstance';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
@@ -54,121 +54,170 @@ const Register = () => {
   };
 
   return (
-    <Card style={{ maxWidth: "500px", margin: "auto", padding: "20px" }}>
-      <CardContent>
-        <Typography variant="h5" style={{ marginBottom: '20px' }}>
-          Register
-        </Typography>
-        <form noValidate onSubmit={handleSubmit}>
-          <Stack spacing={2}>
-            <TextField
-              size="small"
-              label="First Name"
-              name="first_name"
-              variant="outlined"
-              required
-              fullWidth
-              value={formData.first_name}
-              onChange={handleChange}
-            />
-            <TextField
-              size="small"
-              label="Last Name"
-              name="last_name"
-              variant="outlined"
-              required
-              fullWidth
-              value={formData.last_name}
-              onChange={handleChange}
-            />
-            <TextField
-              size="small"
-              label="Mobile Number"
-              name="mobile_number"
-              variant="outlined"
-              required
-              fullWidth
-              value={formData.mobile_number}
-              onChange={handleChange}
-            />
-            <TextField
-              size="small"
-              label="Email"
-              name="email"
-              type="email"
-              variant="outlined"
-              required
-              fullWidth
-              value={formData.email}
-              onChange={handleChange}
-            />
-            <TextField
-              size="small"
-              label="Username"
-              name="username"
-              variant="outlined"
-              required
-              fullWidth
-              value={formData.username}
-              onChange={handleChange}
-            />
-            <TextField
-              size="small"
-              label="Password"
-              name="password"
-              type="password"
-              variant="outlined"
-              required
-              fullWidth
-              value={formData.password}
-              onChange={handleChange}
-            />
-            <Button 
-              variant="contained" 
-              color="primary" 
-              type="submit" 
-              fullWidth
-            >
-              Register
-            </Button>
-          </Stack>
-        </form>
-
-        {/* Success Snackbar */}
-        <Snackbar
-          open={responseSuccess}
-          autoHideDuration={3000}
-          onClose={handleCloseSuccess}
-          anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-        >
-          <Alert
-            onClose={handleCloseSuccess}
-            severity="success"
-            variant="filled"
-            sx={{ width: '100%' }}
+    <div
+      style={{
+        height: '100vh', // Full viewport height
+        display: 'flex', // Enable flexbox
+        alignItems: 'center', // Center items vertically
+        justifyContent: 'center', // Center items horizontally
+        background: 'linear-gradient(to right, #4e54c8, #8f94fb)', // Optional background
+        padding: '20px',
+      }}
+    >
+      <Card style={{
+        maxWidth: "900px", // Increase the width of the card
+        width: '100%',
+        display: 'flex',
+        
+        padding: '30px', // Optional: Add padding inside the card for spacing
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)', // Optional: add a shadow for depth
+      }}>
+        <Grid container spacing={2}>
+          {/* Left Side */}
+          <Grid 
+            item 
+            xs={12} 
+            md={6} 
+            style={{
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              background: '#4e54c8', 
+              color: 'white', // Text color for the left side
+              padding: '10px', // Add some padding
+              borderTopLeftRadius: '8px', // Optional: rounded corners for aesthetic
+              borderBottomLeftRadius: '8px', // Optional: rounded corners for aesthetic
+            }}
           >
-            You have registered successfully.
-          </Alert>
-        </Snackbar>
+            <div style={{ textAlign: 'center' }}>
+              <Typography variant="h4" style={{ marginBottom: '20px', fontWeight: 'bold' }}>
+                Welcome to Service Station Manager
+              </Typography>
+              <Typography variant="body1">
+                Sign up now to manage your vehicle services, track progress, and stay updated with the latest offers and features.
+              </Typography>
+            </div>
+          </Grid>
 
-        {/* Error Snackbar */}
-        <Snackbar
-          open={responseErr}
-          autoHideDuration={3000}
-          onClose={handleCloseError}
-          anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-        >
-          <Alert
-            onClose={handleCloseError}
-            severity="error"
-            variant="filled"
-            sx={{ width: '100%' }}
-          >
-            Something went wrong!
-          </Alert>
-        </Snackbar>
-      </CardContent>
-    </Card>
+          {/* Right Side - Registration Form */}
+          <Grid item xs={12} md={6}>
+            <CardContent>
+              <Typography variant="h5" style={{ marginBottom: '20px' }}>
+                Register
+              </Typography>
+              <form noValidate onSubmit={handleSubmit}>
+                <Stack spacing={2}>
+                  <TextField
+                    size="small"
+                    label="First Name"
+                    name="first_name"
+                    variant="outlined"
+                    required
+                    fullWidth
+                    value={formData.first_name}
+                    onChange={handleChange}
+                  />
+                  <TextField
+                    size="small"
+                    label="Last Name"
+                    name="last_name"
+                    variant="outlined"
+                    required
+                    fullWidth
+                    value={formData.last_name}
+                    onChange={handleChange}
+                  />
+                  <TextField
+                    size="small"
+                    label="Mobile Number"
+                    name="mobile_number"
+                    variant="outlined"
+                    required
+                    fullWidth
+                    value={formData.mobile_number}
+                    onChange={handleChange}
+                  />
+                  <TextField
+                    size="small"
+                    label="Email"
+                    name="email"
+                    type="email"
+                    variant="outlined"
+                    required
+                    fullWidth
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                  <TextField
+                    size="small"
+                    label="Username"
+                    name="username"
+                    variant="outlined"
+                    required
+                    fullWidth
+                    value={formData.username}
+                    onChange={handleChange}
+                  />
+                  <TextField
+                    size="small"
+                    label="Password"
+                    name="password"
+                    type="password"
+                    variant="outlined"
+                    required
+                    fullWidth
+                    value={formData.password}
+                    onChange={handleChange}
+                  />
+                  <Button 
+                    variant="contained" 
+                    color="primary" 
+                    type="submit" 
+                    fullWidth
+                  >
+                    Register
+                  </Button>
+                </Stack>
+              </form>
+
+              {/* Success Snackbar */}
+              <Snackbar
+                open={responseSuccess}
+                autoHideDuration={3000}
+                onClose={handleCloseSuccess}
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+              >
+                <Alert
+                  onClose={handleCloseSuccess}
+                  severity="success"
+                  variant="filled"
+                  sx={{ width: '100%' }}
+                >
+                  You have registered successfully.
+                </Alert>
+              </Snackbar>
+
+              {/* Error Snackbar */}
+              <Snackbar
+                open={responseErr}
+                autoHideDuration={3000}
+                onClose={handleCloseError}
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+              >
+                <Alert
+                  onClose={handleCloseError}
+                  severity="error"
+                  variant="filled"
+                  sx={{ width: '100%' }}
+                >
+                  Something went wrong!
+                </Alert>
+              </Snackbar>
+            </CardContent>
+          </Grid>
+        </Grid>
+      </Card>
+    </div>
   );
 };
 
