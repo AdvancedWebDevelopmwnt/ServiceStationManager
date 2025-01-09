@@ -75,12 +75,16 @@ import StockList from 'src/sections/StockManagement/StockList';
 import StockTaking from 'src/sections/StockManagement/StockTaking';
 import StockReturn from 'src/sections/StockManagement/StockReturn';
 
+import CreateAppointment from 'src/sections/Appointments/AppointmentCreate';
+import AppointmentList from 'src/sections/Appointments/AppointmentList';
+import AppointmentEdit from 'src/sections/Appointments/AppointmentEdit';
 
 import Home from 'src/sections/Home/home';
 import PurchasingAdd from 'src/sections/Purchasing/PurchasingAdd';
 
 import SupplierPayment from 'src/sections/SupplierPaymentManagement/SupplierPayment';
 import CustomerRegister from 'src/sections/CustomerRegistration/CustomerRegister';
+
 
 export const IndexPage = lazy(() => import('src/pages/app'));
 
@@ -455,7 +459,60 @@ export default function Router() {
           ) : (
             <Navigate to="/403" replace />
           ),
-        }
+        },
+
+        {
+          path: 'appointments/list',
+          element: hasAccess('customer-permission|appointment-list') ? (
+            <AppointmentList />
+          ) : (
+            <Navigate to="/403" replace />
+          ),
+        },
+        {
+          path: 'appointments/create',
+          element: hasAccess('customer-permission|appointment-create') ? (
+            <CreateAppointment />
+          ) : (
+            <Navigate to="/403" replace />
+          ),
+         },
+        {
+          path: 'appointments/edit/:id',
+          element: hasAccess('customer-permission|appointment-edit') ? (
+            <AppointmentEdit />
+          ) : (
+            <Navigate to="/403" replace />
+          ),
+        },
+
+
+        {
+          path: 'appointments/list',
+          element: hasAccess('super-permission|appointment-list') ? (
+            <AppointmentList />
+          ) : (
+            <Navigate to="/403" replace />
+          ),
+        },
+        {
+          path: 'appointments/create',
+          element: hasAccess('super-permission|appointment-create') ? (
+            <CreateAppointment />
+          ) : (
+            <Navigate to="/403" replace />
+          ),
+         },
+        {
+          path: 'appointments/edit/:id',
+          element: hasAccess('super-permission|appointment-edit') ? (
+            <AppointmentEdit />
+          ) : (
+            <Navigate to="/403" replace />
+          ),
+        },
+        
+  
 
         
       ],

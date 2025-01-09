@@ -62,7 +62,7 @@ export default function RestrictAccess() {
             }}
           />
 
-          <Button href="/dashboard" size="large" variant="contained" component={RouterLink}>
+          <Button href="/home" size="large" variant="contained" component={RouterLink}>
             Go to Home
           </Button>
         </Box>
