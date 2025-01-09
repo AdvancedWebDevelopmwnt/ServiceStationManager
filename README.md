@@ -1,20 +1,28 @@
-Vehicle Service Station Web Application
-Project Title
-Vehicle Service Station Management System
+##Vehicle Service Station Web Application
+
+##Project Title
+#Vehicle Service Station Management System
+
 A comprehensive Laravel-based web application for managing vehicle service stations with features tailored for service station owners, vehicle owners, and employees.
 
-Features
+##Features
+
 Service Station Owner: Manage employee details, revenue tracking, customer feedback, and inventory.
 Vehicle Owners: Track service progress, approve repairs, make payments, and schedule appointments.
 Employees: Manage assigned tasks, track performance, and update task statuses.
 Admin Panel: View analytics, manage customers, and generate financial reports.
-Technologies Used
+
+##Technologies Used
+
 Backend: Laravel 11.27.1
 Frontend: ReactJS, Bootstrap
 Database: MySQL
 Deployment Tools: Docker (Optional)
 Getting Started
-Prerequisites
+
+
+##Prerequisites
+
 PHP: v8.3.11 or later
 Composer: v2.0 or later
 Node.js: v16.0 or later
