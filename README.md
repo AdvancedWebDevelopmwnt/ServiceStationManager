@@ -1,25 +1,26 @@
-# Appointment Management System
+Vehicle Service Station Web Application
+Project Title
+Vehicle Service Station Management System
+A comprehensive Laravel-based web application for managing vehicle service stations with features tailored for service station owners, vehicle owners, and employees.
 
-A comprehensive Appointment Management System built with Laravel for backend operations and React for the frontend. The system provides seamless functionalities for creating, editing, viewing, and managing appointments with role-based access control.
+Features
+Service Station Owner: Manage employee details, revenue tracking, customer feedback, and inventory.
+Vehicle Owners: Track service progress, approve repairs, make payments, and schedule appointments.
+Employees: Manage assigned tasks, track performance, and update task statuses.
+Admin Panel: View analytics, manage customers, and generate financial reports.
+Technologies Used
+Backend: Laravel 11.27.1
+Frontend: ReactJS, Bootstrap
+Database: MySQL
+Deployment Tools: Docker (Optional)
+Getting Started
+Prerequisites
+PHP: v8.3.11 or later
+Composer: v2.0 or later
+Node.js: v16.0 or later
+MySQL: v8.0 or later
+Git
 
-## Features
-
-- **Role-Based Access Control:** Ensures users can access features according to their permissions.
-- **Appointment Management:** CRUD operations for appointments.
-- **Dynamic Routing:** Integration between Laravel backend routes and React frontend paths.
-- **Security:** Protected routes with permissions and redirection for unauthorized access.
-- **Scalable Design:** Modular architecture to support future enhancements.
-
-## Prerequisites
-
-- PHP >= 8.1
-- Composer
-- Node.js >= 16.x
-- npm or Yarn
-- Laravel 10
-- React 18.x
-- MySQL or another supported database
-- A web server like Apache or Nginx
 
 ## Installation
 
